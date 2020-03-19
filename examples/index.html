@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example</title>
+  <script src="../dist/sdata.min.js"></script>
+</head>
+<body>
+
+<script>
+  SData('test_key', { id: 1, value: 'test_value' });
+
+  if (!SData.has('other_key')) {
+    alert('"other_key" is not exist');
+  }
+
+  alert(SData('test_key').value);
+</script>
+
+</body>
+</html>

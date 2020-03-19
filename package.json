@@ -1,0 +1,50 @@
+{
+  "name": "simple-data-storage",
+  "version": "0.1.0",
+  "description": "Simple key-value storage",
+  "main": "dist/sdata.js",
+  "author": {
+    "name": "Makarov Artem"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/artmakarov/simple-data-storage/issues"
+  },
+  "homepage": "https://github.com/artmakarov/simple-data-storage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artmakarov/simple-data-storage.git"
+  },
+  "keywords": [
+    "storage",
+    "key-value"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["text", "html-spa"],
+    "testMatch": [
+      "<rootDir>/test/*.test.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-jest": "^25.1.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "jest": "^25.1.0",
+    "rollup": "^2.1.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-terser": "^5.3.0"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "simple-data-storage",
-  "version": "0.1.0",
-  "description": "Simple key-value storage",
+  "version": "0.2.0",
+  "description": "Simple key-value storage in the browser or node",
   "main": "dist/sdata.js",
   "author": {
     "name": "Makarov Artem"
@@ -16,8 +16,13 @@
     "url": "git+https://github.com/artmakarov/simple-data-storage.git"
   },
   "keywords": [
+    "key-value",
+    "datastorage",
     "storage",
-    "key-value"
+    "in-memory-database",
+    "in-memory-storage",
+    "in-memory",
+    "javascript-module"
   ],
   "scripts": {
     "build": "rollup -c",
@@ -26,6 +31,14 @@
   "jest": {
     "collectCoverage": true,
     "coverageReporters": ["text", "html-spa"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
     "testMatch": [
       "<rootDir>/test/*.test.js"
     ]

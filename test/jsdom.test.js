@@ -7,7 +7,6 @@ const root = typeof global !== 'undefined' ? global : self;
 const storagePrefix = '__SIMPLE_DATA_STORAGE__';
 const storage = root[storagePrefix];
 
-
 test('Adding data', () => {
   SData('test_key1', 1);
   expect(storage.test_key1).toBe(1);
@@ -16,28 +15,43 @@ test('Adding data', () => {
   expect(SData('test_key2', { value: 'test value' }).value).toBe('test value');
 });
 
-
 test('Сheck if there is a key', () => {
   expect(SData.has('toString')).toBe(false);
   expect(SData.has('test_key2')).toBe(true);
   expect(SData.has('test_key3')).toBe(false);
 });
 
-
 test('Clear data', () => {
   SData.clear('test_key1');
-
   expect(SData('test_key1')).toBeUndefined();
   expect(SData('test_key2').value).toBe('test value');
 
-  SData.clear('test_key3');
-  SData.clear('test_key2');
-
+  SData.clear('test_key3', 'test_key2');
   expect(JSON.stringify(storage)).toBe('{}');
 
   SData('test_key3', ['test item']);
   SData.clear();
-
   expect(JSON.stringify(storage)).not.toBe('{}');
   expect(JSON.stringify(root[storagePrefix])).toBe('{}');
+});
+
+test('Snapshot of data', () => {
+  SData('test_key4', undefined);
+  SData('test_key5', null);
+  expect(SData.has('test_key4')).toBe(true);
+  expect(SData.toSting()).toBe('{"test_key5":null}');
+});
+
+test('Initialization data from the outside', () => {
+  SData.init({ abc: 123 });
+  expect(SData.toSting()).toBe('{"abc":123}');
+
+  SData.init(Object());
+  expect(SData.toSting()).toBe('{}');
+
+  expect(() => SData.init([])).toThrow();
+  expect(() => SData.init([{}])).toThrow('Incorrect data');
+  expect(() => SData.init('incorrect data')).toThrow();
+  expect(() => SData.init(new Map())).toThrow();
+  expect(() => SData.init(new Set())).toThrow();
 });

@@ -1,5 +1,5 @@
 # SData.js
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/artmakarov/simple-data-storage/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/artmakarov/simple-data-storage)](https://github.com/artmakarov/simple-data-storage/blob/master/LICENSE)
 
@@ -15,35 +15,62 @@ npm i simple-data-storage
 in browser:
 
 ```
-<script src="//unpkg.com/simple-data-storage@0.1.0/dist/sdata.min.js"></script>
+<script src="//unpkg.com/simple-data-storage@0.2.0/dist/sdata.min.js"></script>
 ```
+
+
+## API
+
+##### SData(key: _any_, [value: _any_])
+
+If there is a `value`, it sets the passed value by the specified `key`. Always returns `value`.
+
+##### SData.init(data: _object_)
+
+Initializes the storage from the passed `data` in JSON format.
+
+##### SData.has(key: _any_)
+
+Checks whether the `key` exists in the storage.
+Returns a Boolean value.
+
+##### SData.clear(key: _any_, [key_2: _any_, key_3: _any_, ...key_n: _any_])
+
+Deletes the key and value from storage.
+
+##### SData.toString()
+
+Returns a snapshot of the storage as a string.
 
 
 ## Usage example
 
 ```js
-const sdata = require('simple-data-storage');
+const SData = require('simple-data-storage');
 
-sdata('one_key', 'one_value');
-console.log(sdata('one_key')); //=> one_value
+SData('one_key', 'one_value');
+console.log(SData('one_key')); //=> one_value
 
-sdata(321, 963);
-sdata('other key', { abc: 'boom!' });
-console.log(sdata(321)); //=> 963
-console.log(sdata('321')); //=> 963
-console.log(sdata('other key')); //=> { abc: 'boom!' }
-console.log(sdata('other key').abc); //=> boom!
+SData(321, 963);
+SData('other key', { abc: 'boom!' });
+
+console.log(SData(321)); //=> 963
+console.log(SData('321')); //=> 963
+console.log(SData('other key')); //=> { abc: 'boom!' }
+console.log(SData('other key').abc); //=> boom!
 
 // clear one item
-sdata.clear('other key');
-console.log(sdata('other key')); //=> undefined
-console.log(sdata('one_key')); //=> one_value
+SData.clear('other key');
+
+console.log(SData('other key')); //=> undefined
+console.log(SData('one_key')); //=> one_value
 
 // clear all items
-sdata(123, ['test', 4]);
-sdata.clear();
-console.log(sdata(123)); //=> undefined
-console.log(sdata('one_key')); //=> undefined
+SData(123, ['test', 4]);
+SData.clear();
+
+console.log(SData(123)); //=> undefined
+console.log(SData('one_key')); //=> undefined
 ```
 
 In the browser, use the global function **SData()**

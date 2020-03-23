@@ -11,6 +11,7 @@
 
   var root = typeof global !== 'undefined' ? global : self;
   var storagePrefix = '__SIMPLE_DATA_STORAGE__';
+  var objectPrototype = Object.prototype;
   var storage = root[storagePrefix] = {};
 
   function SData(key, value) {
@@ -21,16 +22,34 @@
     return storage[key];
   }
 
-  SData.has = function (key) {
-    return Object.prototype.hasOwnProperty.call(storage, key);
+  SData.init = function (data) {
+    if (objectPrototype.toString.call(data) !== '[object Object]') {
+      throw new TypeError('Incorrect data');
+    }
+
+    storage = root[storagePrefix] = data;
   };
 
-  SData.clear = function (key) {
-    if (key === void 0) {
+  SData.has = function (key) {
+    return objectPrototype.hasOwnProperty.call(storage, key);
+  };
+
+  SData.clear = function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    if (!args.length) {
       storage = root[storagePrefix] = {};
     } else {
-      delete storage[key];
+      args.forEach(function (key) {
+        delete storage[key];
+      });
     }
+  };
+
+  SData.toSting = function () {
+    return JSON.stringify(storage);
   };
 
   return SData;

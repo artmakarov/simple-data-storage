@@ -1,6 +1,6 @@
 {
   "name": "simple-data-storage",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple key-value storage in the browser or node",
   "main": "dist/sdata.js",
   "author": {

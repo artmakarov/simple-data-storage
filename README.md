@@ -1,5 +1,5 @@
 # SData.js
-![Version](https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.2.1-blue.svg?cacheSeconds=2592000)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/artmakarov/simple-data-storage/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/artmakarov/simple-data-storage)](https://github.com/artmakarov/simple-data-storage/blob/master/LICENSE)
 
@@ -15,30 +15,30 @@ npm i simple-data-storage
 in browser:
 
 ```
-<script src="//unpkg.com/simple-data-storage@0.2.0/dist/sdata.min.js"></script>
+<script src="//unpkg.com/simple-data-storage@0.2.1/dist/sdata.min.js"></script>
 ```
 
 
 ## API
 
-##### SData(key: _any_, [value: _any_])
+#### SData(key: _any_, [value: _any_])
 
 If there is a `value`, it sets the passed value by the specified `key`. Always returns `value`.
 
-##### SData.init(data: _object_)
+#### SData.init(data: _object_)
 
 Initializes the storage from the passed `data` in JSON format.
 
-##### SData.has(key: _any_)
+#### SData.has(key: _any_)
 
 Checks whether the `key` exists in the storage.
 Returns a Boolean value.
 
-##### SData.clear(key: _any_, [key_2: _any_, key_3: _any_, ...key_n: _any_])
+#### SData.clear(key: _any_, [key_2: _any_, key_3: _any_, ...key_n: _any_])
 
 Deletes the key and value from storage.
 
-##### SData.toString()
+#### SData.toString()
 
 Returns a snapshot of the storage as a string.
 

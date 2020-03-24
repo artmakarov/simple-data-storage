@@ -1,8 +1,9 @@
 # SData.js
 ![Minified size](https://img.shields.io/github/size/artmakarov/simple-data-storage/dist/sdata.min.js.svg)
-[![npm downloads](https://img.shields.io/npm/dw/simple-data-storage.svg)](https://npm-stat.com/charts.html?package=simple-data-storage&from=2020-03-01)
-[![npm downloads](https://img.shields.io/npm/dm/simple-data-storage.svg)](https://npm-stat.com/charts.html?package=simple-data-storage&from=2020-03-01)
-[![Version](https://img.shields.io/github/issues-raw/artmakarov/simple-data-storage.svg)](https://github.com/artmakarov/simple-data-storage/issues)
+[![npm downloads](https://img.shields.io/npm/dw/simple-data-storage.svg)](https://npm-stat.com/charts.html?package=simple-data-storage&from=2020-03-19)
+[![npm downloads](https://img.shields.io/npm/dm/simple-data-storage.svg)](https://npm-stat.com/charts.html?package=simple-data-storage&from=2020-03-19)
+[![Open issues](https://img.shields.io/github/issues-raw/artmakarov/simple-data-storage.svg)](https://github.com/artmakarov/simple-data-storage/issues)
+[![Open pull request](https://img.shields.io/github/issues-pr-raw/artmakarov/simple-data-storage.svg)](https://github.com/artmakarov/simple-data-storage/pulls)
 [![Version](https://img.shields.io/npm/v/simple-data-storage.svg)](https://www.npmjs.com/package/simple-data-storage)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/artmakarov/simple-data-storage/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/github/license/artmakarov/simple-data-storage.svg)](https://github.com/artmakarov/simple-data-storage/blob/master/LICENSE)
@@ -19,7 +20,7 @@ npm i simple-data-storage
 in browser:
 
 ```
-<script src="//unpkg.com/simple-data-storage@0.2.1/dist/sdata.min.js"></script>
+<script src="//unpkg.com/simple-data-storage@0.2.2/dist/sdata.min.js"></script>
 ```
 
 

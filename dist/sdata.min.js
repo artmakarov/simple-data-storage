@@ -1,5 +1,5 @@
 /*!
- * simple-data-storage v0.2.1
+ * simple-data-storage v0.2.2
  * (c) 2019-2020 Makarov Artem
  * Released under the MIT License.
  */

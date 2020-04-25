@@ -28,6 +28,7 @@ module.exports = {
     'no-multi-assign': 'warn',
     'no-restricted-globals': 'warn',
     'no-void': 'off',
+    'prefer-rest-params': 'warn',
 
     // rules for SonarJS
     'sonarjs/no-duplicate-string': 'warn',

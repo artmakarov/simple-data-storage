@@ -48,7 +48,7 @@
     }
   };
 
-  SData.toSting = function () {
+  SData.toString = function () {
     return JSON.stringify(storage);
   };
 

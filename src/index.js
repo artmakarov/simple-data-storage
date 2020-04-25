@@ -32,6 +32,6 @@ SData.clear = (...args) => {
   }
 };
 
-SData.toSting = () => JSON.stringify(storage);
+SData.toString = () => JSON.stringify(storage);
 
 export default SData;

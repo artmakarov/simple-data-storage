@@ -39,15 +39,18 @@ test('Snapshot of data', () => {
   SData('test_key4', undefined);
   SData('test_key5', null);
   expect(SData.has('test_key4')).toBe(true);
-  expect(SData.toSting()).toBe('{"test_key5":null}');
+  expect(SData.toString()).toBe('{"test_key5":null}');
+  expect(SData()).toEqual({ test_key4: undefined, test_key5: null });
 });
 
 test('Initialization data from the outside', () => {
-  SData.init({ abc: 123 });
-  expect(SData.toSting()).toBe('{"abc":123}');
+  SData.init({ abc: 123, cba: undefined });
+  expect(SData.toString()).toBe('{"abc":123}');
+  expect(SData()).toEqual({ abc: 123, cba: undefined });
 
   SData.init(Object());
-  expect(SData.toSting()).toBe('{}');
+  expect(SData.toString()).toBe('{}');
+  expect(SData()).toEqual({});
 
   expect(() => SData.init([])).toThrow();
   expect(() => SData.init([{}])).toThrow('Incorrect data');

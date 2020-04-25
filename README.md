@@ -20,15 +20,17 @@ npm i simple-data-storage
 in browser:
 
 ```
-<script src="//unpkg.com/simple-data-storage@0.2.2/dist/sdata.min.js"></script>
+<script src="//unpkg.com/simple-data-storage/dist/sdata.min.js"></script>
 ```
 
 
 ## API
 
-#### SData(key: _any_, [value: _any_])
+#### SData([key: _any_, value: _any_])
 
-If there is a `value`, it sets the passed value by the specified `key`. Always returns `value`.
+If there are no parameters it returns the full storage object.\
+If there is a `value`, it sets the passed value by the specified `key` and returns value.\
+If only a `key` is passed, the value for this key is returned.
 
 #### SData.init(data: _object_)
 
@@ -36,12 +38,13 @@ Initializes the storage from the passed `data` in JSON format.
 
 #### SData.has(key: _any_)
 
-Checks whether the `key` exists in the storage.
+Checks whether the `key` exists in the storage.\
 Returns a Boolean value.
 
-#### SData.clear(key: _any_, [key_2: _any_, key_3: _any_, ...key_n: _any_])
+#### SData.clear([key: _any_, key_2: _any_, key_3: _any_, ...key_n: _any_])
 
-Deletes the key and value from storage.
+Deletes the key and value from storage.\
+If there are no parameters, the entire storage is cleared
 
 #### SData.toString()
 

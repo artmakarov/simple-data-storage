@@ -1,5 +1,5 @@
 /*!
- * simple-data-storage v0.2.2
+ * simple-data-storage v1.0.0
  * (c) 2019-2020 Makarov Artem
  * Released under the MIT License.
  */
@@ -15,7 +15,13 @@
   var storage = root[storagePrefix] = {};
 
   function SData(key, value) {
-    if (arguments.length > 1) {
+    var argsLength = arguments.length;
+
+    if (argsLength === 0) {
+      return storage;
+    }
+
+    if (argsLength > 1) {
       storage[key] = value;
     }
 
@@ -35,20 +41,16 @@
   };
 
   SData.clear = function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    if (!args.length) {
+    if (arguments.length === 0) {
       storage = root[storagePrefix] = {};
     } else {
-      args.forEach(function (key) {
+      [].forEach.call(arguments, function (key) {
         delete storage[key];
       });
     }
   };
 
-  SData.toSting = function () {
+  SData.toString = function () {
     return JSON.stringify(storage);
   };
 

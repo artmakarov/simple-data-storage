@@ -5,7 +5,13 @@ const objectPrototype = Object.prototype;
 let storage = root[storagePrefix] = {};
 
 function SData(key, value) {
-  if (arguments.length > 1) {
+  const { length: argsLength } = arguments;
+
+  if (argsLength === 0) {
+    return storage;
+  }
+
+  if (argsLength > 1) {
     storage[key] = value;
   }
 
@@ -22,16 +28,16 @@ SData.init = (data) => {
 
 SData.has = (key) => objectPrototype.hasOwnProperty.call(storage, key);
 
-SData.clear = (...args) => {
-  if (!args.length) {
+SData.clear = function () {
+  if (arguments.length === 0) {
     storage = root[storagePrefix] = {};
   } else {
-    args.forEach((key) => {
+    [].forEach.call(arguments, (key) => {
       delete storage[key];
     });
   }
 };
 
-SData.toSting = () => JSON.stringify(storage);
+SData.toString = () => JSON.stringify(storage);
 
 export default SData;

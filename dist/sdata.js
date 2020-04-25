@@ -35,14 +35,10 @@
   };
 
   SData.clear = function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    if (!args.length) {
+    if (arguments.length === 0) {
       storage = root[storagePrefix] = {};
     } else {
-      args.forEach(function (key) {
+      [].forEach.call(arguments, function (key) {
         delete storage[key];
       });
     }

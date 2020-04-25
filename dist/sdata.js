@@ -15,7 +15,13 @@
   var storage = root[storagePrefix] = {};
 
   function SData(key, value) {
-    if (arguments.length > 1) {
+    var argsLength = arguments.length;
+
+    if (argsLength === 0) {
+      return storage;
+    }
+
+    if (argsLength > 1) {
       storage[key] = value;
     }
 

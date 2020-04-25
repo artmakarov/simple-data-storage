@@ -5,7 +5,13 @@ const objectPrototype = Object.prototype;
 let storage = root[storagePrefix] = {};
 
 function SData(key, value) {
-  if (arguments.length > 1) {
+  const { length: argsLength } = arguments;
+
+  if (argsLength === 0) {
+    return storage;
+  }
+
+  if (argsLength > 1) {
     storage[key] = value;
   }
 
